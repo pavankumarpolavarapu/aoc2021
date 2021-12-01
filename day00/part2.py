@@ -13,15 +13,14 @@ INPUT_TXT = os.path.join(os.path.dirname(__file__), 'input.txt')
 def compute(s: str) -> int:
     numbers = [int(line) for line in s.splitlines()]
     count = 0
-    temp = 3333333333
-    for n in numbers:
-        if n > temp:
-            count = count + 1
-        temp = n
+    for i, n in enumerate(numbers):
+        if i > 3:
+            sum_of_3 = numbers[i-1] + numbers[i-2] + numbers[i-3]
+            if((numbers[i] + numbers[i-1] + numbers[i-2]) > sum_of_3):
+                count = count + 1
 
     print(count)
     return count
-
     lines = s.splitlines()
     for line in lines:
         pass
@@ -42,7 +41,7 @@ INPUT_S = '''\
 @pytest.mark.parametrize(
     ('input_s', 'expected'),
     (
-        (INPUT_S, 3),
+        (INPUT_S, 1),
     ),
 )
 def test(input_s: str, expected: int) -> None:
