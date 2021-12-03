@@ -11,36 +11,38 @@ INPUT_TXT = os.path.join(os.path.dirname(__file__), 'input.txt')
 
 
 def compute(s: str) -> int:
-    x = 0
-    y = 0
+    numbers = [int(line) for line in s.splitlines()]
+    count = 0
+    temp = 3333333333
+    for n in numbers:
+        if n > temp:
+            count = count + 1
+        temp = n
+
+    print(count)
+    return count
+
     lines = s.splitlines()
     for line in lines:
-        move = line.split(' ')
-        if move[0] == 'forward':
-            x = x + int(move[1])
-        elif move[0] == 'down':
-            y = y + int(move[1])
-        elif move[0] == 'up':
-            y = y - int(move[1])
-
+        pass
     # TODO: implement solution here!
-    return (x * y)
+    return 0
 
 
 INPUT_S = '''\
-forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2
+169
+150
+158
+163
+167
+151
 '''
 
 
 @pytest.mark.parametrize(
     ('input_s', 'expected'),
     (
-        (INPUT_S, 150),
+        (INPUT_S, 3),
     ),
 )
 def test(input_s: str, expected: int) -> None:

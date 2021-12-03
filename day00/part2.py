@@ -12,15 +12,9 @@ INPUT_TXT = os.path.join(os.path.dirname(__file__), 'input.txt')
 
 def compute(s: str) -> int:
     numbers = [int(line) for line in s.splitlines()]
-    count = 0
-    for i, n in enumerate(numbers):
-        if i > 3:
-            sum_of_3 = numbers[i-1] + numbers[i-2] + numbers[i-3]
-            if((numbers[i] + numbers[i-1] + numbers[i-2]) > sum_of_3):
-                count = count + 1
+    for n in numbers:
+        pass
 
-    print(count)
-    return count
     lines = s.splitlines()
     for line in lines:
         pass
@@ -29,12 +23,7 @@ def compute(s: str) -> int:
 
 
 INPUT_S = '''\
-169
-150
-158
-163
-167
-151
+
 '''
 
 
